@@ -1,4 +1,9 @@
 OmniauthSampleApp::Application.routes.draw do
+  root :to => "tweet#input"
+  get "tweet/input"
+  post "tweet/update"
+  match "/auth/twitter/callback" => "sessions#create", via: 'get'
+  match "/signout" => "sessions#destroy", via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
